@@ -12,13 +12,16 @@ public class ElevatePiston extends CommandBase {
   /** Creates a new ElevatePiston. */
   public ElevatePiston() {
     // Use addRequirements() here to declare subsystem dependencies.
-    piston = new Piston(Piston.pistons.E_CANNON);
+    piston = new Piston();
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    
+    System.out.println(" Eletrical team will electrocute themselves ");
+
+    piston.elevate();
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -26,7 +29,7 @@ public class ElevatePiston extends CommandBase {
   public void execute() 
   {
     System.out.println(" mecanical team are going to stab themselves somehow ");
-    piston.elevate();
+   
   }
 
   // Called once the command ends or is interrupted.
@@ -37,6 +40,6 @@ public class ElevatePiston extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }

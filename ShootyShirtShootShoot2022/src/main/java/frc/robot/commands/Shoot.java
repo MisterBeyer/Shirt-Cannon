@@ -21,18 +21,14 @@ public class Shoot extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    System.out.println("Coding team is the best team ");
-     
-    
-     
-    
-
+    solid.toggleShoot();
   }
   public void execute() {
-    solid.toggleShoot();
+   // System.out.println("Coding team is better then everybody else ");
+    
    }
   @Override
   public boolean isFinished() {
-    return false;
+    return true;
   }
 }

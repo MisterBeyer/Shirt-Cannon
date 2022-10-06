@@ -13,25 +13,28 @@ import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 
 public class Cannon extends SubsystemBase {
-  DoubleSolenoid test;
-  Solenoid solidPCM;
+   Solenoid air;
+  // DoubleSolenoid test;
+  // DoubleSolenoid solidPCM;
   /** Creates a new Double_solid. */
    public Cannon() {
-    solidPCM = new Solenoid(PneumaticsModuleType.CTREPCM,1);
-    // I.D NUMBERS ARE NOT OFFICAL AND WILL NEED TO BE RE WRITTEN LATER WHEN THE BOSS IS READY
+    // solidPCM = new Solenoid(PneumaticsModuleType.CTREPCM,1);
+    //solidPCM = new DoubleSolenoid(PneumaticsModuleType.CTREPCM,3,7);
+      air = new Solenoid(PneumaticsModuleType.CTREPCM,7);
+    // I.D NUMBERS ARE NOT OFFICAL AND WILL NEED TO BE RE WRITTEN LATER WHEN THE BOSS IS READY single 
    }
 
    public void toggleShoot()
    {
-     solidPCM.toggle();
+     System.out.println("current channel of the code is  " +  air.get() );
+     air.toggle();
+    //  solidPCM.set(Value.kForward);
+     
    }
      
 
    
-   public Boolean checkOn() {
-     
-   return solidPCM.get();
-   }
+   
 
    
    
