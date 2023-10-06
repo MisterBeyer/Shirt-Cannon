@@ -4,8 +4,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Compressor;
-
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants. This class should not be used for any other purpose. All constants should be declared
@@ -16,4 +14,6 @@ import edu.wpi.first.wpilibj.Compressor;
  */
 public final class Constants {
     public double inchesPerRev = 2.58;
+    public double turnP = 0.0031;
+    public double turnI = 0.000;
 }
