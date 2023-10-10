@@ -13,6 +13,7 @@ import frc.robot.commands.auto.TableAuto;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.auto.JosephStalin;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -26,6 +27,7 @@ public class RobotContainer {
   private Flywheel flywheel = new Flywheel();
 
   private final XboxController gamePad;
+  private JosephStalin core_control = new JosephStalin();
 
   /*
    * Use this method to define your button->command mappings. Buttons can be created by
@@ -43,7 +45,7 @@ public class RobotContainer {
 
     // Flywheel controls, Hopefully works?
     Trigger yButton = new JoystickButton(gamePad, XboxController.Button.kY.value);
-    yButton.whileTrue(new shootything(flywheel));
+    yButton.whileTrue(new shootything(flywheel, core_control));
 
     //configureButtonBindings();
     // Might have to chang raw axis 5 to 4 since 5 is forward and backward but 4 is left and right 

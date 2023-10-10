@@ -14,10 +14,10 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivebase extends SubsystemBase {
     Constants constant = new Constants();
-    private final CANSparkMax front_Left = new CANSparkMax(1, MotorType.kBrushless);
-    private final CANSparkMax back_Left = new CANSparkMax(4, MotorType.kBrushless);
+    private final CANSparkMax front_Left = new CANSparkMax(3, MotorType.kBrushless);
+    private final CANSparkMax back_Left = new CANSparkMax(6, MotorType.kBrushless);
     private final CANSparkMax front_Right = new CANSparkMax(5, MotorType.kBrushless);
-    private final CANSparkMax back_Right = new CANSparkMax(6, MotorType.kBrushless);
+    private final CANSparkMax back_Right = new CANSparkMax(4, MotorType.kBrushless);
     private final WPI_Pigeon2 gyro = new WPI_Pigeon2(10);
     Drivebase drive;
     public Drivebase()

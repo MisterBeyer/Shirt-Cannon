@@ -1,29 +1,51 @@
 package frc.robot.subsystems;
+//import com.ctre.phoenix.motorcontrol.ControlMode;
+//import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Flywheel extends SubsystemBase{
     private final CANSparkMax Motor0 = new CANSparkMax(2, MotorType.kBrushless);
-    private final CANSparkMax Motor1 = new CANSparkMax(3, MotorType.kBrushless);
+    private final CANSparkMax Motor1 = new CANSparkMax(1, MotorType.kBrushless);
+    //private final TalonFX Motor01 = new TalonFX(2);
+    //private final TalonFX Motor02 = new TalonFX(3);
+
 
     public Flywheel() {
-     //   Motor0.setIdleMode(IdleMode.kBrake);
-        //Motor1.setIdleMode(IdleMode.kBrake);
-        Motor1.set(-0.75);
-        Motor0.set(0.75);
+      Motor0.setIdleMode(IdleMode.kCoast);
+      Motor1.setIdleMode(IdleMode.kCoast);
+
+        //Motor0.set(0.95);
+        //Motor1.set(-0.95);
+        //Motor01.set(ControlMode.PercentOutput, 0.75);
+        //Motor02.set(ControlMode.PercentOutput, -0.75);
     }
 
     public void Motorforward(){
-        System.out.println(" The flywheel has begun spinning up");
-        Motor0.set(0.75);
-        Motor1.set(-0.75); 
+        //System.out.println(" The flywheel has begun spinning up");
+        Motor0.set(0.80);
+        Motor1.set(-0.80);
+        
+        SmartDashboard.putNumber("Motor0Amps", Motor0.getOutputCurrent());
+        SmartDashboard.putNumber("Motor1Amps", Motor1.getOutputCurrent());
+        //Motor01.set(ControlMode.PercentOutput, 0.75);
+        //Motor02.set(ControlMode.PercentOutput, -0.75);
+        //I might be done guys
+        //He might not be either
      }
      public void MotorStop(){
-        System.out.println(" The flywheel has stopped");
-       Motor0.set(0.0);
-       Motor1.set(0.0);
+      //System.out.println(" The flywheel has stopped");
+      Motor0.set(0.0);
+      Motor1.set(0.0);
+
+      SmartDashboard.putNumber("Motor0Amps", Motor0.getOutputCurrent());
+      SmartDashboard.putNumber("Motor1Amps", Motor1.getOutputCurrent());
+       //Motor01.set(ControlMode.PercentOutput, 0);
+        //Motor02.set(ControlMode.PercentOutput, 0);
      }
      
     // My code is perfect 
