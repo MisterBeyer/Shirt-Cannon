@@ -27,11 +27,10 @@ public class RobotContainer {
   private Flywheel flywheel = new Flywheel();
 
   private final XboxController gamePad;
-  private JosephStalin core_control = new JosephStalin();
 
   /*
    * Use this method to define your button->command mappings. Buttons can be created by
-   * instantiating a {@link GenericHID} or one of its subclasses ({@link
+   * instantiating a {@link GenericHID} or one of its subclasses ({@link                                                                                                                                                                                                                                                                                         */ private JosephStalin core_control = new JosephStalin(); /*
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */

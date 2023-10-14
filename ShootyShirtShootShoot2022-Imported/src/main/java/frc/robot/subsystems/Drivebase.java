@@ -22,8 +22,8 @@ public class Drivebase extends SubsystemBase {
     Drivebase drive;
     public Drivebase()
     {
-        back_Left.follow(front_Left);
         back_Right.follow(front_Right);
+        back_Left.follow(front_Left);
         front_Left.setIdleMode(IdleMode.kBrake);
         front_Right.setIdleMode(IdleMode.kBrake);
         back_Left.setIdleMode(IdleMode.kBrake);
@@ -33,8 +33,8 @@ public class Drivebase extends SubsystemBase {
     public void tankDrive(double left_Input, double right_Input) {
         
         
-        front_Left.set(MathUtil.applyDeadband(left_Input, 0.02));
-        front_Right.set(MathUtil.applyDeadband(right_Input, 0.02));
+        front_Left.set(.2);//MathUtil.applyDeadband(left_Input, 0.02));
+        front_Right.set(.2); //MathUtil.applyDeadband(right_Input, 0.02));
     }
     public void setIdleMode() {
         front_Left.setIdleMode(IdleMode.kBrake);
@@ -53,7 +53,7 @@ public class Drivebase extends SubsystemBase {
        }
        public void move(double power) {
         front_Left.set(power);
-             front_Right.set(power);
+            front_Right.set(power);
             back_Left.set(power);
             back_Right.set(power);
       }

@@ -5,6 +5,7 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.Drivebase;
+//import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import java.util.function.BooleanSupplier;
@@ -19,6 +20,7 @@ public class ExampleCommand extends CommandBase {
   private final BooleanSupplier l_fast;
   private final BooleanSupplier l_slow;
   private double limiter;
+ // private XboxController gamePad;
   /**
    * Creates a new ExampleCommand.
    * int booga = 5
@@ -36,16 +38,15 @@ public class ExampleCommand extends CommandBase {
     m_right = right;
     l_fast = fast;
     l_slow = slow;
+// gamePad = new XboxController(0);
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-    
-  }
-
+  public void initialize() {}
+  
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
@@ -61,9 +62,10 @@ public class ExampleCommand extends CommandBase {
       double speed = -m_left.getAsDouble();
       double turn = m_right.getAsDouble();
       double LeftMove = speed + turn;
-      double RightMove = speed - turn;
-    m_subsystem.tankDrive(LeftMove*limiter, -RightMove*limiter);
-    
+      double RightMove = speed + turn;
+    m_subsystem.tankDrive(LeftMove*limiter, RightMove*limiter);
+    //m_subsystem.move(RightMove*limiter);
+   
   }
 
   // Called once the command ends or is interrupted.
