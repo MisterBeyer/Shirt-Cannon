@@ -31,8 +31,6 @@ public class Drivebase extends SubsystemBase {
     }
 
     public void tankDrive(double left_Input, double right_Input) {
-        
-        
         front_Left.set(MathUtil.applyDeadband(left_Input, 0.02));
         front_Right.set(MathUtil.applyDeadband(right_Input, 0.02));
     }
@@ -52,9 +50,9 @@ public class Drivebase extends SubsystemBase {
         
        }
        public void move(double power) {
-        front_Left.set(power);
+        front_Left.set(-power);
             front_Right.set(power);
-            back_Left.set(power);
+            back_Left.set(-power);
             back_Right.set(power);
       }
        public void resetGyro(){

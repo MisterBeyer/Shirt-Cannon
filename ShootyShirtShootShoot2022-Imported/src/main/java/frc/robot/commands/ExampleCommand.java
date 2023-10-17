@@ -61,9 +61,9 @@ public class ExampleCommand extends CommandBase {
     }
       double speed = -m_left.getAsDouble();
       double turn = m_right.getAsDouble();
-      double LeftMove = -speed + turn;
+      double LeftMove = speed + turn;
       double RightMove = speed - turn;
-    m_subsystem.tankDrive(LeftMove*limiter, -RightMove*limiter);
+    m_subsystem.tankDrive(LeftMove*limiter, RightMove*limiter);
    
   }
 

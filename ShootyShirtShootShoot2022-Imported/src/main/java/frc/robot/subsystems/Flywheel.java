@@ -11,18 +11,16 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Flywheel extends SubsystemBase{
     private final CANSparkMax Motor0 = new CANSparkMax(2, MotorType.kBrushless);
     private final CANSparkMax Motor1 = new CANSparkMax(1, MotorType.kBrushless);
-    //private final TalonFX Motor01 = new TalonFX(2);
-    //private final TalonFX Motor02 = new TalonFX(3);
-
+    
+    private final CANSparkMax Pusher0 = new CANSparkMax(7, MotorType.kBrushless);
+    private final CANSparkMax Pusher1 = new CANSparkMax(8, MotorType.kBrushless);
 
     public Flywheel() {
       Motor0.setIdleMode(IdleMode.kCoast);
       Motor1.setIdleMode(IdleMode.kCoast);
 
-        //Motor0.set(0.95);
-        //Motor1.set(-0.95);
-        //Motor01.set(ControlMode.PercentOutput, 0.75);
-        //Motor02.set(ControlMode.PercentOutput, -0.75);
+      Pusher0.set(0.1);
+      Pusher1.set(0.1);
     }
 
     public void Motorforward(){
@@ -32,8 +30,9 @@ public class Flywheel extends SubsystemBase{
         
         SmartDashboard.putNumber("Motor0Amps", Motor0.getOutputCurrent());
         SmartDashboard.putNumber("Motor1Amps", Motor1.getOutputCurrent());
-        //Motor01.set(ControlMode.PercentOutput, 0.75);
-        //Motor02.set(ControlMode.PercentOutput, -0.75);
+        SmartDashboard.putNumber("Pusher0Amps", Pusher0.getOutputCurrent());
+        SmartDashboard.putNumber("Pusher1Amps", Pusher1.getOutputCurrent());
+
         //I might be done guys
         //He might not be either
      }
